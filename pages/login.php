@@ -39,32 +39,38 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Pengguna</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/login.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+
 </head>
 <body>
     <?php include('../includes/header.php'); ?>
 
-    <div class="container mt-5">
-        <h2>Login Pengguna</h2>
-        
-        <?php
-        if (isset($error_message)) {
-            echo "<div class='alert alert-danger'>$error_message</div>";
-        }
-        ?>
+    <div class="container vh-100 d-flex align-items-center justify-content-center">
+        <div class="card shadow-lg p-4 w-100" style="max-width: 400px;">
+            <h1 class="text-center mb-4 text-primary">Login</h1>
 
-        <form method="POST">
-            <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" name="email" required>
-            </div>
-            <div class="mb-3">
-                <label for="kata_sandi" class="form-label">Kata Sandi</label>
-                <input type="password" class="form-control" id="kata_sandi" name="kata_sandi" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Login</button>
-        </form>
+            <!-- Menampilkan pesan error jika ada -->
+            <?php if (isset($error_message)): ?>
+                <div class="alert alert-danger"><?php echo $error_message; ?></div>
+            <?php endif; ?>
 
-        <p class="mt-3">Belum memiliki akun? <a href="register.php">Daftar sekarang</a></p>
+            <form method="POST" action="login.php">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="kata_sandi" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="kata_sandi" name="kata_sandi" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Login</button>
+            </form>
+
+            <p class="text-center mt-3"> Belum memiliki akun?
+                <a href="register.php" class="text-decoration-none">Daftar Sekarang</a>
+            </p>
+        </div>
     </div>
 
     <?php include('../includes/footer.php'); ?>

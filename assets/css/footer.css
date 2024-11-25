@@ -1,0 +1,42 @@
+/* Footer styling enhancements */
+.footer {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    padding: 2rem 0;
+}
+
+.footer h5 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+}
+
+.footer p, .footer ul, .footer a {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer ul li a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer ul li a:hover {
+    color: var(--secondary-color);
+}
+
+/* Social media icons */
+.footer .bi {
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+.footer .bi:hover {
+    color: var(--secondary-color);
+}
