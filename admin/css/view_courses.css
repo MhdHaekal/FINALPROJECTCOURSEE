@@ -1,0 +1,130 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #00246B;
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link {
+    color: white;
+    font-size: 1.1rem;
+    text-transform: capitalize;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #8AB6F9;
+}
+
+.navbar-nav .nav-link.text-danger:hover {
+    color: #dc3545;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(to right, #1D3557, #8AB6F9); /* Gradasi warna biru */
+    color: white;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+}
+
+/* Card and Table Styling */
+.card {
+    border: none;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-body {
+    padding: 30px;
+}
+
+.table {
+    margin-top: 20px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th {
+    background-color: #00246B;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+.table td {
+    text-align: center;
+    padding: 10px;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f8f9fa;
+}
+
+.table-striped tbody tr:nth-of-type(even) {
+    background-color: #e9ecef;
+}
+
+.table-striped tbody tr:hover {
+    background-color: #d6e9ff;
+}
+
+/* Button Styles */
+.btn-warning {
+    background-color: #ffc107;
+    color: white;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .table {
+        font-size: 0.9rem;
+    }
+
+    .btn {
+        font-size: 0.9rem;
+    }
+}

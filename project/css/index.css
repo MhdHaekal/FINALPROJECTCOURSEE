@@ -1,0 +1,56 @@
+/* Custom Colors */
+:root {
+    --primary-color: #8AB6F9;
+    --secondary-color: #CADCFC;
+    --dark-color: #00246B;
+    --light-color: #ffffff;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    color: var(--light-color);
+    padding: 80px 0;
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--dark-color);
+}
+
+/* Available Courses */
+.course-card {
+    border: none;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer Styles */
+.footer {
+    background: linear-gradient(to right, #00246B, #8AB6F9);
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.footer h5 {
+    font-size: 18px;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.footer .bi {
+    font-size: 20px;
+    transition: transform 0.3s ease;
+}
+
+.footer .bi:hover {
+    transform: scale(1.2);
+}
+
