@@ -39,7 +39,7 @@ $courses = $courseController->getAllCourses();
                                 <div class="card-body">
                                     <h5 class="card-title"><?= htmlspecialchars($course['title']) ?></h5>
                                     <p class="card-text"><?= htmlspecialchars($course['description']) ?></p>
-                                    <a href="course_detail.php?course_id=<?= $course['id'] ?>" class="btn btn-primary w-100">Lihat Kursus</a>
+                                    <a href="../views/user/course_detail.php?course_id=<?= $course['id'] ?>" class="btn btn-primary w-100">Lihat Kursus</a>
                                 </div>
                             </div>
                         </div>
