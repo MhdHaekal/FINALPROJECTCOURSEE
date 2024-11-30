@@ -1,31 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <title>Online Course</title>
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.php">Online Course</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+<?php session_start(); ?>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Platform Kursus</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <!-- Link Home (Selalu muncul) -->
+                <li class="nav-item">
+                    <a class="nav-link active" href="home.php">Home</a>
+                </li>
+
+                <!-- Link Profile dan Logout hanya muncul jika sudah login -->
+                <?php if (isset($_SESSION['user_id'])): ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/home.php">Home</a>
+                        <a class="nav-link" href="profile.php">Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/courses.php">Courses</a>
+                        <a class="nav-link" href="../views/logout.php">Logout</a>
+                    </li>
+                <?php else: ?>
+                    <!-- Jika belum login, tampilkan Login dan Register -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="../views/login.php">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="admin/index.php">Admin</a>
+                        <a class="nav-link" href="../views/register.php">Daftar</a>
                     </li>
-                </ul>
-            </div>
+                <?php endif; ?>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
