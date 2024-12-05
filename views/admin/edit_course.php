@@ -54,18 +54,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 <body>
     <div class="container mt-5">
-        <h2>Edit Kursus</h2>
-        <form method="POST" action="edit_course.php?id=<?= $course['id'] ?>">
-            <div class="mb-3">
-                <label for="title" class="form-label">Judul Kursus</label>
-                <input type="text" class="form-control" name="title" value="<?= $course['title'] ?>" required>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h5>Edit Kursus</h5>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST" action="edit_course.php?id=<?= $course['id'] ?>">
+                            <div class="mb-3">
+                                <label for="title" class="form-label">Judul Kursus</label>
+                                <input type="text" class="form-control" name="title" value="<?= $course['title'] ?>" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="description" class="form-label">Deskripsi Kursus</label>
+                                <textarea class="form-control" name="description" rows="4" required><?= $course['description'] ?></textarea>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <a href="dashboard.php" class="btn btn-secondary">Kembali</a>
+                                <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="description" class="form-label">Deskripsi Kursus</label>
-                <textarea class="form-control" name="description" rows="4" required><?= $course['description'] ?></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
-        </form>
+        </div>
     </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
 </body>
 </html>

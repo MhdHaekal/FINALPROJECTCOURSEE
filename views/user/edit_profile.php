@@ -65,20 +65,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Profil</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/edit_profile.css">
 </head>
 <body>
 
     <!-- Navbar -->
     <?php include '../../includes/header.php'; ?>
 
-    <div class="container mt-5">
-        <h2>Edit Profil</h2>
+    <br></br>
+
+    <!-- Edit Profil Section -->
+    <div class="container edit-profile-container mt-5">
+        <h2 class="text-center mb-4">Edit Profil</h2>
 
         <!-- Pesan Error atau Success -->
         <?php if ($error_message): ?>
@@ -89,22 +93,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <?php endif; ?>
 
         <!-- Form Edit Profil -->
-        <form method="POST" enctype="multipart/form-data">
+        <form method="POST" enctype="multipart/form-data" class="card shadow-sm p-4 mb-4 rounded">
             <!-- Foto Profil -->
             <div class="mb-3 text-center">
-                <img src="../../uploads/<?= htmlspecialchars($user['profile_picture']) ?: 'default.jpg' ?>" alt="Foto Profil" class="img-fluid rounded-circle" style="width: 150px; height: 150px; object-fit: cover;">
+                <img src="../../uploads/<?= htmlspecialchars($user['profile_picture']) ?: 'default.jpg' ?>" 
+                     alt="Foto Profil" class="img-fluid rounded-circle shadow"
+                     style="width: 150px; height: 150px; object-fit: cover;">
             </div>
 
             <!-- Input Nama Lengkap -->
             <div class="mb-3">
                 <label for="full_name" class="form-label">Nama Lengkap</label>
-                <input type="text" class="form-control" name="full_name" value="<?= htmlspecialchars($user['full_name']) ?>" required>
+                <input type="text" class="form-control" name="full_name" 
+                       value="<?= htmlspecialchars($user['full_name']) ?>" required>
             </div>
 
             <!-- Input Email -->
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" name="email" value="<?= htmlspecialchars($user['email']) ?>" required>
+                <input type="email" class="form-control" name="email" 
+                       value="<?= htmlspecialchars($user['email']) ?>" required>
             </div>
 
             <!-- Input Foto Profil Baru -->
@@ -113,11 +121,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <input type="file" class="form-control" name="profile_picture">
             </div>
 
-            <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+            <button type="submit" class="btn btn-primary w-100 mb-3">Simpan Perubahan</button>
         </form>
 
-        <br/>
-        <a href="profile.php" class="btn btn-secondary">Kembali Ke Profil</a>
+        <a href="profile.php" class="btn btn-secondary w-100 back-to-profile-btn">Kembali Ke Profil</a>
     </div>
 
     <!-- Footer -->

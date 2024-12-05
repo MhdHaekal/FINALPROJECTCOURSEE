@@ -38,32 +38,45 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reset Password</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/reset_pass.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container mt-5">
+
+<div class="reset-password-container">
+    <div class="reset-password-card">
         <h2>Reset Password</h2>
         <form method="POST" action="reset_password.php">
-            <div class="mb-3">
-                <label for="new_password" class="form-label">Password Baru</label>
-                <input type="password" class="form-control" name="new_password" required>
+            <div class="form-floating mb-3">
+                <input type="password" class="form-control" name="new_password" id="new_password" required>
+                <label for="new_password">Password Baru</label>
             </div>
-            <div class="mb-3">
-                <label for="confirm_password" class="form-label">Konfirmasi Password</label>
-                <input type="password" class="form-control" name="confirm_password" required>
+            <div class="form-floating mb-3">
+                <input type="password" class="form-control" name="confirm_password" id="confirm_password" required>
+                <label for="confirm_password">Konfirmasi Password</label>
             </div>
-            <button type="submit" class="btn btn-primary">Reset Password</button>
+            <div class="mb-4">
+                <button type="submit" class="btn btn-custom w-100">Reset Password</button>
+            </div>
         </form>
+
+        <!-- Error Message -->
         <?php if (isset($error_message)): ?>
             <div class="alert alert-danger mt-3"><?= $error_message ?></div>
         <?php endif; ?>
+
+        <!-- Success Message -->
         <?php if (isset($_SESSION['success_message'])): ?>
             <div class="alert alert-success mt-3"><?= $_SESSION['success_message']; unset($_SESSION['success_message']); ?></div>
         <?php endif; ?>
     </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

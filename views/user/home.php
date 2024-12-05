@@ -15,70 +15,95 @@ $courses = $courseController->getAllCourses();
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage - User</title>
+    <title>Homepage - Pengguna</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../assets/css/styles.css">  <!-- Menyertakan file CSS untuk styling -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="../../assets/css/styles.css" rel="stylesheet"> <!-- File CSS eksternal -->
 </head>
 <body>
 
     <!-- Navbar -->
     <?php include '../../includes/header.php'; ?>
 
-    <!-- Main Content -->
-    <div class="container mt-5">
-        <h2 class="text-center mb-4">Selamat datang di Platform Kursus!</h2>
-        
-        <!-- Daftar Kursus -->
-        <div class="row">
-            <div class="col-md-12">
-                <h3>Kursus yang Tersedia</h3>
-                <div class="row g-4">
-                    <?php foreach ($courses as $course): ?>
-                        <div class="col-md-6 col-lg-4">
-                            <div class="card">
-                                <!-- Menampilkan Gambar Sampul Kursus -->
-                                <img src="../../assets/images/<?= htmlspecialchars($course['image_url']) ?>" alt="Gambar Sampul <?= htmlspecialchars($course['title']) ?>" class="card-img-top" style="height: 200px; object-fit: cover;">
+    <!-- Hero Section -->
+    <section class="hero d-flex align-items-center text-white py-5" style="background-color: #8AB6F9;">
+        <div class="container text-center">
+            <h1 class="display-3 mb-4" style="color: #00246B;">Halo, Selamat Datang Kembali!</h1>
+            <p class="lead mb-4" style="color: #00246B;">Jelajahi kursus yang telah kami sediakan dan tingkatkan kemampuan Anda.</p>
+            <a href="#courses" class="btn btn-dark btn-lg">Mulai Belajar</a>
+        </div>
+    </section>
 
-                                <div class="card-body">
-                                    <h5 class="card-title"><?= htmlspecialchars($course['title']) ?></h5>
-                                    <p class="card-text"><?= htmlspecialchars($course['description']) ?></p>
-                                    <a href="course_detail.php?course_id=<?= $course['id'] ?>" class="btn btn-primary w-100">Lihat Kursus</a>
-                                </div>
+    <!-- Daftar Kursus -->
+    <section id="courses" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5" style="color: #00246B;">Kursus yang Direkomendasikan</h2>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                <?php foreach ($courses as $course): ?>
+                    <div class="col">
+                        <div class="card shadow-sm border-0 rounded-3 course-card">
+                            <img src="../../assets/images/<?= htmlspecialchars($course['image_url']) ?>" alt="Gambar Sampul <?= htmlspecialchars($course['title']) ?>" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title" style="color: #00246B;"><?= htmlspecialchars($course['title']) ?></h5>
+                                <p class="card-text" style="color: #555;"><?= htmlspecialchars($course['description']) ?></p>
+                            </div>
+                            <div class="card-footer text-center">
+                                <a href="course_detail.php?course_id=<?= $course['id'] ?>" class="btn btn-dark w-100">Lihat Kursus</a>
                             </div>
                         </div>
-                    <?php endforeach; ?>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tentang Kami -->
+    <section class="py-5" style="background-color: #CADCFC;">
+        <div class="container text-center">
+            <h2 class="mb-4" style="color: #00246B;">Kenapa Memilih Kami?</h2>
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <p style="color: #555;">Kami menawarkan berbagai kursus berkualitas yang diajarkan oleh instruktur berpengalaman. Temukan kursus yang cocok untuk kebutuhan Anda dan tingkatkan kemampuan Anda sekarang!</p>
+                </div>
+                <div class="col-lg-6">
+                    <img src="../../assets/images/why_us.jpg" alt="Kenapa Memilih Kami" class="img-fluid rounded-3">
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- Tentang Instruktur (Ditempatkan setelah daftar kursus) -->
-        <div class="mt-5">
-            <h3 class="text-center mb-4">Tentang Instruktur</h3>
-            <div class="row">
-                <div class="col-md-6 mx-auto">
-                    <p>Instruktur kami adalah para profesional berpengalaman di bidangnya, siap membantu Anda untuk mencapai tujuan pembelajaran.</p>
-                    <img src="../../assets/images/instructor.jpg" alt="Instruktur" class="img-fluid rounded-3 mb-4">
-                    <p>Instruktur yang kami pilih memiliki pengalaman dan pengetahuan mendalam, serta keterampilan pengajaran yang mumpuni untuk memberikan pembelajaran yang terbaik untuk Anda.</p>
-                </div>
+    <!-- Instruktur Kami -->
+<section class="instructor-section py-5">
+    <div class="container text-center">
+        <h2 class="mb-4" style="color: #00246B;">Instruktur Kami</h2>
+        <div class="instructor-card d-flex justify-content-center">
+            <img src="../../assets/images/instructor.jpg" alt="Instruktur" class="instructor-img">
+            <div class="instructor-content">
+                <h4>Tita Meita Marcusi</h4>
+                <p>Instruktur berpengalaman dalam berbagai bidang teknologi dan pengembangan. John telah mengajar selama lebih dari 10 tahun dan memiliki pengalaman dalam mengembangkan materi kursus yang sangat mendalam dan mudah diikuti.</p>
+                <a href="mailto:john.doe@example.com" class="btn-contact">Hubungi Instruktur</a> <!-- Tombol Hubungi Instruktur -->
             </div>
-        </div>
-
-        <!-- Hubungi Kami -->
-        <div class="mt-5 text-center">
-            <h3>Hubungi Kami</h3>
-            <p>Email: <a href="mailto:support@courseplatform.com">support@courseplatform.com</a></p>
-            <p>Telepon: <a href="tel:+1234567890">123-456-7890</a></p>
         </div>
     </div>
+</section>
+
+
+    <!-- Hubungi Kami -->
+    <section class="bg-primary text-white py-5" style="background-color: #00246B;">
+        <div class="container text-center">
+            <h2 class="mb-4">Butuh Bantuan?</h2>
+            <p>Email: <a href="mailto:support@courseplatform.com" class="text-light">support@courseplatform.com</a></p>
+            <p>Telepon: <a href="tel:+1234567890" class="text-light">123-456-7890</a></p>
+        </div>
+    </section>
 
     <!-- Footer -->
     <?php include '../../includes/footer.php'; ?>
 
-    <!-- JavaScript (Optional) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

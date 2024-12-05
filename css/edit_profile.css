@@ -1,0 +1,92 @@
+/* Global Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #F9F9F9;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container Edit Profil */
+.edit-profile-container {
+    max-width: 800px;
+    margin: 150px auto 40px auto; /* Memberikan jarak yang lebih besar di atas container */
+}
+
+/* Judul Edit Profil */
+.edit-profile-container h2 {
+    color: #00246B;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 30px; /* Menambah jarak bawah judul */
+    margin-top: 30px; /* Memberikan jarak yang lebih besar di atas judul */
+}
+
+/* Form Styling */
+.card {
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.form-label {
+    color: #00246B;
+}
+
+.form-control {
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Pesan Error & Success */
+.alert {
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+/* Tombol */
+.btn-primary {
+    background-color: #00246B; /* Warna utama */
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.btn-primary:hover {
+    background-color: #555; /* Warna hover */
+}
+
+.btn-secondary {
+    background-color: #CADCFC; /* Warna sekunder */
+    border: none;
+    color: #00246B; /* Teks warna utama */
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.btn-secondary:hover {
+    background-color: #8AB6F9;
+    color: white; /* Teks putih saat hover */
+}
+
+/* Jarak Tombol "Kembali Ke Profil" dari Footer */
+.back-to-profile-btn {
+    margin-top: 20px; /* Memberikan jarak antara tombol dan form */
+    margin-bottom: 40px; /* Memberikan jarak antara tombol dan footer */
+}
+
+/* Foto Profil */
+img.img-fluid.rounded-circle {
+    border: 4px solid #00246B;
+    object-fit: cover;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+    .edit-profile-container {
+        margin: 80px auto 20px auto; /* Jarak untuk layar kecil */
+        padding: 0 15px;
+    }
+}

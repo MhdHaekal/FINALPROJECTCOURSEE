@@ -1,0 +1,93 @@
+/* Global Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #F9F9F9;
+    margin: 0;
+    padding: 0;
+}
+
+/* Section Detail Kursus */
+.course-detail {
+    padding-top: 80px;  /* Memberikan padding agar konten tidak menempel pada navbar */
+}
+
+/* Judul Kursus */
+.course-detail h2 {
+    margin-top: 50px;  /* Menambahkan jarak atas untuk judul kursus */
+    font-size: 2rem;
+    color: #00246B;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Gambar Kursus */
+.course-image {
+    max-height: 400px;
+    object-fit: cover;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Deskripsi Kursus */
+.course-description, .course-video, .course-materials {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.course-description h4, .course-video h4, .course-materials h4 {
+    color: #00246B;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Tombol */
+.btn-primary {
+    background-color: #00246B;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+}
+
+.btn-primary:hover {
+    background-color: #555;
+}
+
+.btn-secondary {
+    background-color: #CADCFC;
+    color: #00246B;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+.btn-secondary:hover {
+    background-color: #8AB6F9;
+    color: #fff;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+    .course-image {
+        max-height: 300px;
+    }
+
+    .course-description, .course-video, .course-materials {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .course-image {
+        max-height: 250px;
+    }
+
+    .course-description h4, .course-video h4, .course-materials h4 {
+        font-size: 1.2rem;
+    }
+}
+
