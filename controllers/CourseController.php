@@ -1,6 +1,6 @@
 <?php
 // Menggunakan jalur absolut untuk menghindari masalah path relatif
-include $_SERVER['DOCUMENT_ROOT'] . '../FINAL/config/db.php';
+include $_SERVER['DOCUMENT_ROOT'] . '../g/config/db.php';
 
 class CourseController {
 
