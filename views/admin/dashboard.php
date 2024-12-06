@@ -11,12 +11,42 @@ if (!$auth->isLoggedIn() || $_SESSION['role'] !== 'admin') {
     exit;
 }
 
-$course_query = "SELECT * FROM courses";
-$result_courses = $conn->query($course_query);
+// Proses Hapus Kursus
+if (isset($_GET['delete_course_id'])) {
+    $course_id = $_GET['delete_course_id'];
 
-// Menangani error jika query gagal
-if ($result_courses === false) {
-    die('Query Error: ' . mysqli_error($conn));
+    // Menghapus gambar jika ada
+    $query = "SELECT image_url FROM courses WHERE id = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("i", $course_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $course = $result->fetch_assoc();
+    if ($course && $course['image_url']) {
+        $image_path = '../../assets/images/' . $course['image_url'];
+        if (file_exists($image_path)) {
+            unlink($image_path); // Menghapus file gambar
+        }
+    }
+
+    // Menghapus data kursus dari database
+    $delete_query = "DELETE FROM courses WHERE id = ?";
+    $delete_stmt = $conn->prepare($delete_query);
+    $delete_stmt->bind_param("i", $course_id);
+    if ($delete_stmt->execute()) {
+        $success_message = "Kursus berhasil dihapus!";
+    } else {
+        $error_message = "Terjadi kesalahan saat menghapus kursus!";
+    }
+}
+
+// Ambil daftar kursus
+$query_courses = "SELECT id, title, description, image_url, created_at FROM courses"; 
+$result_courses = $conn->query($query_courses);
+
+// Cek jika query gagal
+if (!$result_courses) {
+    die("Query failed: " . $conn->error); 
 }
 ?>
 
@@ -26,11 +56,14 @@ if ($result_courses === false) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Admin</title>
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../../css/admin_das.css" rel="stylesheet">
+
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
 </head>
 <body>
-
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
         <div class="container-fluid">
@@ -55,57 +88,74 @@ if ($result_courses === false) {
     <div class="container mt-5">
         <h2>Dashboard Admin</h2>
 
-        <!-- Card for Course Management -->
-        <div class="card">
-            <div class="card-header">
-                <h4 class="card-title">Daftar Kursus</h4>
-            </div>
-            <div class="card-body">
-                <!-- Table displaying course list -->
-                <table class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nama Kursus</th>
-                            <th>Deskripsi</th>
-                            <th>Gambar Sampul</th>
-                            <th>Dibuat Pada</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php while ($course = $result_courses->fetch_assoc()): ?>
-                            <tr>
-                                <td><?= $course['id']; ?></td>
-                                <td><?= $course['title']; ?></td>
-                                <td><?= substr($course['description'], 0, 50); ?>...</td> <!-- Potong deskripsi -->
-                                <td>
-                                    <?php if ($course['image_url']): ?>
-                                        <img src="../../assets/images/<?= $course['image_url']; ?>" alt="Image" width="50">
-                                    <?php else: ?>
-                                        <span>No image</span>
-                                    <?php endif; ?>
-                                </td>
-                                <td><?= $course['created_at']; ?></td>
-                            </tr>
-                        <?php endwhile; ?>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+        <!-- Tampilkan pesan error atau sukses -->
+        <?php if (isset($error_message) && $error_message): ?>
+            <div class="alert alert-danger"><?= $error_message ?></div>
+        <?php endif; ?>
+        <?php if (isset($success_message) && $success_message): ?>
+            <div class="alert alert-success"><?= $success_message ?></div>
+        <?php endif; ?>
 
         <!-- Button Section: Separate from the table -->
-        <div class="button-section">
-            <div class="d-flex justify-content-start btn-container">
-                <a href="views_user.php" class="btn btn-info btn-custom">Lihat Pengguna Terdaftar</a>
-                <a href="add_course.php" class="btn btn-primary btn-custom">Tambah Kursus</a>
-                <a href="manage_courses.php" class="btn btn-secondary btn-custom">Kelola Kursus</a>
-                <a href="../logout.php" class="btn btn-danger btn-custom">Logout</a>
-            </div>
+        <div class="mb-3">
+            <a href="add_course.php" class="btn btn-success">Tambah Kursus</a>
+            <!-- Menambahkan tombol "Lihat Pengguna Terdaftar" -->
+            <a href="views_user.php" class="btn btn-info">Lihat Pengguna Terdaftar</a>
+        </div>
+
+        <!-- Table displaying course list -->
+        <div class="table-responsive">
+            <table id="courses_table" class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nama Kursus</th>
+                        <th>Deskripsi</th>
+                        <th>Gambar Sampul</th>
+                        <th>Tanggal Dibuat</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php while ($course = $result_courses->fetch_assoc()): ?>
+                        <tr>
+                            <td><?= $course['id'] ?></td>
+                            <td><?= $course['title'] ?></td> 
+                            <td><?= $course['description'] ?></td> 
+                            <td>
+                                <?php if ($course['image_url']): ?>
+                                    <img src="../../assets/images/<?= $course['image_url'] ?>" alt="Gambar Sampul" width="100">
+                                <?php else: ?>
+                                    <span>No image</span>
+                                <?php endif; ?>
+                            </td>
+                            <td><?= date('d-m-Y', strtotime($course['created_at'])) ?></td>
+                            <td>
+                                <!-- Button Edit -->
+                                <a href="edit_course.php?id=<?= $course['id'] ?>" class="btn btn-warning">Edit</a>
+
+                                <!-- Button Hapus -->
+                                <a href="?delete_course_id=<?= $course['id'] ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus kursus ini?')">Hapus</a>
+                            </td>
+                        </tr>
+                    <?php endwhile; ?>
+                </tbody>
+            </table>
         </div>
     </div>
 
-    <!-- Bootstrap JS and dependencies -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- jQuery and DataTables JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // Inisialisasi DataTable
+            $('#courses_table').DataTable();
+        });
+    </script>
 </body>
 </html>
