@@ -60,7 +60,7 @@ $courses = $courseController->getAllCourses();
                                 <p class="card-text" style="color: #555;"><?= htmlspecialchars($course['description']) ?></p>
                             </div>
                             <div class="card-footer text-center">
-                                <a href="course_detail.php?course_id=<?= $course['id'] ?>" class="btn btn-dark w-100">Lihat Kursus</a>
+                                <a href="../views/login.php" class="btn btn-dark w-100">Lihat Kursus</a>
                             </div>
                         </div>
                     </div>
