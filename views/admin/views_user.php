@@ -31,30 +31,40 @@ $result_users = $conn->query($query_users);
 </head>
 <body>
     <div class="container mt-5">
-        <h2>Daftar Pengguna</h2>
-        <a href="dashboard.php" class="btn btn-primary mb-3">Kembali ke Dashboard</a>
-        
-        <!-- Tabel Data Pengguna -->
-        <table id="users_table" class="display">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Username</th>
-                    <th>Email</th>
-                    <th>Role</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php while ($user = $result_users->fetch_assoc()): ?>
-                    <tr>
-                        <td><?= $user['id'] ?></td>
-                        <td><?= $user['username'] ?></td>
-                        <td><?= $user['email'] ?></td>
-                        <td><?= ucfirst($user['role']) ?></td>
-                    </tr>
-                <?php endwhile; ?>
-            </tbody>
-        </table>
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h5>Daftar Pengguna</h5>
+                    </div>
+                    <div class="card-body">
+                        <a href="dashboard.php" class="btn btn-secondary mb-3">Kembali ke Dashboard</a>
+                        
+                        <!-- Tabel Data Pengguna -->
+                        <table id="users_table" class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Username</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php while ($user = $result_users->fetch_assoc()): ?>
+                                    <tr>
+                                        <td><?= $user['id'] ?></td>
+                                        <td><?= $user['username'] ?></td>
+                                        <td><?= $user['email'] ?></td>
+                                        <td><?= ucfirst($user['role']) ?></td>
+                                    </tr>
+                                <?php endwhile; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Bootstrap JS -->
@@ -67,7 +77,13 @@ $result_users = $conn->query($query_users);
     <script>
         $(document).ready(function() {
             // Inisialisasi DataTable
-            $('#users_table').DataTable();
+            $('#users_table').DataTable({
+                "paging": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "responsive": true
+            });
         });
     </script>
 </body>

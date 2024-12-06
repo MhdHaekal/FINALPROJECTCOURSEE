@@ -28,25 +28,36 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lupa Password</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/forgot.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container mt-5">
+
+<div class="forgot-password-container">
+    <div class="forgot-password-card">
         <h2>Lupa Password</h2>
         <form method="POST" action="forgot_password.php">
-            <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" name="email" required>
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" name="email" id="email" required>
+                <label for="email">Masukkan Email Anda</label>
             </div>
-            <button type="submit" class="btn btn-primary">Kirim Link Reset</button>
+            <div class="mb-4">
+                <button type="submit" class="btn btn-custom w-100">Kirim Link Reset</button>
+            </div>
         </form>
+
+        <!-- Error Message -->
         <?php if (isset($error_message)): ?>
             <div class="alert alert-danger mt-3"><?= $error_message ?></div>
         <?php endif; ?>
     </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

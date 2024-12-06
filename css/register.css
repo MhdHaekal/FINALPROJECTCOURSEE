@@ -1,0 +1,81 @@
+/* Styling untuk halaman registrasi */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #CADCFC; /* Warna latar belakang */
+    color: #00246B; /* Warna teks utama */
+    margin: 0;
+    padding: 0;
+}
+
+/* Kontainer untuk form registrasi */
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.register-card {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading */
+h2 {
+    color: #00246B; /* Judul berwarna utama */
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Form input */
+.form-floating input, .form-floating select {
+    border-radius: 10px;
+    padding: 12px;
+    background-color: #fff;
+    border: 1px solid #00246B;
+}
+
+.form-floating label {
+    color: #00246B;
+}
+
+/* Button daftar */
+.btn {
+    background-color: #00246B;
+    color: #fff;
+    padding: 12px 0;
+    border-radius: 5px;
+    border: none;
+    text-transform: uppercase;
+}
+
+.btn:hover {
+    background-color: #8AB6F9;
+}
+
+/* Tautan "Login" dan footer */
+a {
+    color: #00246B;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #8AB6F9;
+}
+
+.footer-text {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.alert {
+    color: #8AB6F9;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    margin-top: 20px;
+    border-radius: 5px;
+}

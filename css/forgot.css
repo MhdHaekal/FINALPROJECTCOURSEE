@@ -1,0 +1,56 @@
+/* Mengatur latar belakang halaman */
+body {
+    background-color: #f7f9fc;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Container untuk form reset password, agar terpusat di tengah */
+.forgot-password-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Desain untuk card forgot password */
+.forgot-password-card {
+    max-width: 400px;
+    width: 100%;
+    padding: 40px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading untuk form forgot password */
+.forgot-password-card h2 {
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+/* Styling untuk form-floating input */
+.form-floating .form-control {
+    border-radius: 8px;
+    height: 45px;
+    box-shadow: none;
+}
+
+/* Tombol Kirim Link Reset */
+.btn-custom {
+    background-color: #0056b3;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+.btn-custom:hover {
+    background-color: #003b8d;
+}
+
+/* Styling untuk alert error */
+.alert {
+    border-radius: 8px;
+    font-size: 14px;
+    margin-top: 10px;
+}

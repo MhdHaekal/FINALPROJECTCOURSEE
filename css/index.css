@@ -120,9 +120,18 @@ section.bg-light img {
     width: 100%;
 }
 
-/* Instruktur Kami */
+/* Instruktur Section */
 .instructor-section {
-    background-color: #F2F2F2;
+    background-color: #F9F9F9;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.instructor-section h2 {
+    color: #00246B;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 30px;
 }
 
 .instructor-card {
@@ -130,59 +139,29 @@ section.bg-light img {
     justify-content: center;
     align-items: center;
     background-color: #fff;
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
 }
 
 .instructor-img {
     width: 150px;
     height: 150px;
-    object-fit: cover;
     border-radius: 50%;
+    object-fit: cover;
     margin-right: 20px;
-    border: 5px solid #00246B;
-}
-
-.instructor-content {
-    max-width: 500px;
-    text-align: left;
 }
 
 .instructor-content h4 {
     color: #00246B;
+    font-size: 1.5rem;
     font-weight: bold;
-    margin-bottom: 15px;
 }
 
 .instructor-content p {
     color: #555;
     font-size: 1rem;
-    margin-bottom: 20px;
 }
-
-/* Tombol Hubungi Instruktur */
-.btn-contact {
-    background-color: #00246B; /* Warna utama */
-    color: #fff; /* Warna teks putih */
-    padding: 10px 20px; /* Jarak dalam tombol */
-    text-transform: uppercase; /* Teks tombol kapital */
-    font-size: 1rem; /* Ukuran font */
-    font-weight: bold; /* Tebal font */
-    border-radius: 5px; /* Sudut membulat */
-    text-decoration: none; /* Hilangkan garis bawah */
-    display: inline-block; /* Untuk memastikan terlihat sebagai tombol */
-    margin-top: 10px; /* Jarak atas tombol */
-    transition: background-color 0.3s ease; /* Animasi pada hover */
-}
-
-/* Efek Hover */
-.btn-contact:hover {
-    background-color: #8AB6F9; /* Warna hover */
-    color: #00246B; /* Teks berubah ke warna utama */
-}
-
-
 
 /* Hubungi Kami Section */
 .bg-primary {

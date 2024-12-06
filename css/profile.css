@@ -1,0 +1,152 @@
+/* Global Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #F9F9F9;
+    margin: 0;
+    padding: 0;
+}
+
+/* Profil Section */
+.profil-section {
+    background-color: #F9F9F9;
+    padding: 60px 0;
+}
+
+/* Profil Section Heading */
+.profil-section h2 {
+    font-size: 2rem;
+    color: #00246B;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Profile Picture */
+.profile-picture img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid #00246B;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Informasi Pengguna */
+.card {
+    background-color: #fff;
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    padding: 20px;
+    font-size: 1rem;
+    color: #555;
+}
+
+.card-body p {
+    margin-bottom: 10px;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    color: #00246B;
+    font-weight: bold;
+}
+
+/* Tombol Edit dan Kembali */
+.btn {
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 12px 25px;
+}
+
+.btn-primary {
+    background-color: #00246B;
+    border: none;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #555;
+}
+
+.btn-secondary {
+    background-color: #CADCFC;
+    border: none;
+    color: #00246B;
+}
+
+.btn-secondary:hover {
+    background-color: #8AB6F9;
+    color: #fff;
+}
+
+/* Responsif: Mengatur Elemen untuk Perangkat Kecil dan Medium */
+@media (max-width: 768px) {
+    /* Ukuran gambar profil untuk layar kecil */
+    .profile-picture img {
+        width: 120px;
+        height: 120px;
+    }
+
+    /* Ukuran tombol dan card untuk layar kecil */
+    .card {
+        margin-top: 30px;
+    }
+
+    .btn {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    /* Gambar profil lebih kecil lagi di layar ponsel */
+    .profile-picture img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .card-body {
+        padding: 15px;
+    }
+
+    .btn-primary, .btn-secondary {
+        font-size: 0.9rem;
+        padding: 12px 25px;
+    }
+
+    .profil-section {
+        padding: 40px 0;
+    }
+}
+
+/* Untuk Layar Desktop Lebih Besar */
+@media (min-width: 1200px) {
+    /* Mengatur ukuran gambar profil dan card untuk layar besar */
+    .profile-picture img {
+        width: 180px;
+        height: 180px;
+    }
+
+    .profil-section {
+        padding: 80px 0;
+    }
+
+    .card {
+        max-width: 600px;
+        margin: 0 auto; /* Agar card berada di tengah */
+    }
+
+    /* Tombol Edit Profil dan Kembali */
+    .btn {
+        font-size: 1.1rem;
+    }
+
+    .btn-primary, .btn-secondary {
+        padding: 15px 30px; /* Padding lebih besar untuk desktop */
+    }
+}

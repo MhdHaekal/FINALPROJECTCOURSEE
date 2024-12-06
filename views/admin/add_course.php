@@ -20,9 +20,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $description = isset($_POST['description']) ? $_POST['description'] : '';
     $instructor_id = $_SESSION['user_id'];
 
-    // Debug $_POST untuk memastikan data terkirim
-    // echo '<pre>'; print_r($_POST); echo '</pre>';
-
     // Upload gambar sampul
     if (isset($_FILES['image']['name']) && $_FILES['image']['name'] != '') {
         $image = $_FILES['image'];
@@ -144,5 +141,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <br/>
         <a href="dashboard.php" class="btn btn-secondary mb-3">Kembali Ke Dashboard</a>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
