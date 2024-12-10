@@ -1,28 +1,96 @@
+/* General Styles */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+/* General Styles */
 body {
-    background-color: #f8f9fa;
+    background-color: #CADCFC; /* 60% - Main background color */
+    font-family: Arial, sans-serif;
+    color: #333;
 }
-.container {
-    max-width: 1200px;
+
+
+.container h2 {
+    text-align: center; /* Teks akan tetap terpusat secara horizontal */
+    font-weight: bold;
 }
-h2 {
-    color: #343a40;
+
+
+/* Navbar */
+.navbar {
+    background-color: #00246B; /* 100% - Dark Blue */
+}
+.navbar .navbar-brand, .navbar-nav .nav-link {
+    color: white !important;
+}
+.navbar-nav .nav-link:hover {
+    color: #8AB6F9; /* Secondary color for hover */
+}
+
+/* Table Styles */
+.table-responsive {
+    margin-top: 30px;
+}
+table {
+    width: 100%;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .table th, .table td {
     text-align: center;
     vertical-align: middle;
 }
-.card {
-    border-radius: 10px;
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
 }
-.table-bordered {
-    border: 1px solid #dee2e6;
+.table th {
+    background-color: #8AB6F9; /* 30% - Secondary color */
+    color: white;
 }
-.btn-custom {
+
+/* CTA Button Styles */
+.cta-btn {
+    background-color: #00246B; /* 10% - Accent color */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+.cta-btn:hover {
+    background-color: #001C4A; /* Darker shade of accent */
+}
+
+/* Alerts */
+.alert {
+    border-radius: 5px;
     font-weight: bold;
 }
-.button-section {
-    margin-top: 20px;
+
+/* Footer */
+.footer {
+    background-color: #00246B; /* 100% - Dark Blue */
+    color: white;
+    text-align: center;
+    padding: 15px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin-top: 50px;
 }
-.btn-container a {
+
+/* Button Section */
+.mb-3 a {
     margin-right: 10px;
+}
+
+/* Custom Margin and Padding */
+.container {
+    padding-top: 50px;
+    padding-bottom: 50px;
 }

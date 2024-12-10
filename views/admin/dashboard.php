@@ -64,8 +64,9 @@ if (!$result_courses) {
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
 </head>
 <body>
+
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Admin Dashboard</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -85,8 +86,8 @@ if (!$result_courses) {
         </div>
     </nav>
 
-    <div class="container mt-5">
-        <h2>Dashboard Admin</h2>
+    <div class="container">
+        <h2 class="mb-4">Dashboard Admin</h2>
 
         <!-- Tampilkan pesan error atau sukses -->
         <?php if (isset($error_message) && $error_message): ?>
@@ -96,11 +97,10 @@ if (!$result_courses) {
             <div class="alert alert-success"><?= $success_message ?></div>
         <?php endif; ?>
 
-        <!-- Button Section: Separate from the table -->
+        <!-- Button Section -->
         <div class="mb-3">
-            <a href="add_course.php" class="btn btn-success">Tambah Kursus</a>
-            <!-- Menambahkan tombol "Lihat Pengguna Terdaftar" -->
-            <a href="views_user.php" class="btn btn-info">Lihat Pengguna Terdaftar</a>
+            <a href="add_course.php" class="btn cta-btn">Tambah Kursus</a>
+            <a href="views_user.php" class="btn cta-btn">Lihat Pengguna Terdaftar</a>
         </div>
 
         <!-- Table displaying course list -->
@@ -131,10 +131,7 @@ if (!$result_courses) {
                             </td>
                             <td><?= date('d-m-Y', strtotime($course['created_at'])) ?></td>
                             <td>
-                                <!-- Button Edit -->
                                 <a href="edit_course.php?id=<?= $course['id'] ?>" class="btn btn-warning">Edit</a>
-
-                                <!-- Button Hapus -->
                                 <a href="?delete_course_id=<?= $course['id'] ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus kursus ini?')">Hapus</a>
                             </td>
                         </tr>
@@ -143,6 +140,11 @@ if (!$result_courses) {
             </table>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2024 Platform Kursus. All Rights Reserved.</p>
+    </footer>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

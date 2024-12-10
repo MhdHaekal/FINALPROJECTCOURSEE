@@ -22,14 +22,21 @@ $courses = $courseController->getAllCourses();
     <!-- Navbar -->
     <?php include '../includes/header.php'; ?>
 
-    <!-- Hero Section -->
-    <section class="hero d-flex align-items-center text-white py-5" style="background-color: #8AB6F9;">
-        <div class="container text-center">
+   <!-- Hero Section -->
+<section class="hero d-flex align-items-center text-white py-5" style="background-color: #8AB6F9;">
+    <div class="container d-flex align-items-center">
+        <!-- Left Column for Text and Button -->
+        <div class="text-left">
             <h1 class="display-3 mb-4" style="color: #00246B;">Selamat Datang di Platform Kursus Kami!</h1>
             <p class="lead mb-4" style="color: #00246B;">Jelajahi berbagai kursus berkualitas yang kami tawarkan untuk meningkatkan kemampuan Anda.</p>
             <a href="#courses" class="btn btn-dark btn-lg">Mulai Belajar</a>
         </div>
-    </section>
+        <!-- Right Column for Image -->
+        <div class="ml-5">
+            <img src="../assets/images/hero.png" alt="Hero Image" class="hero-image">
+        </div>
+    </div>
+</section>
 
     <!-- Tentang Kami -->
     <section class="py-5" style="background-color: #CADCFC;">
@@ -37,10 +44,11 @@ $courses = $courseController->getAllCourses();
             <h2 class="mb-4" style="color: #00246B;">Tentang Kami</h2>
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h1 style="color: #00246B;">Kursus Upgrade Diri Terbaik</h1>
                     <p style="color: #00246B;">Platform kursus kami menyediakan berbagai kursus dari berbagai bidang. Kami menawarkan fleksibilitas dalam belajar dengan materi terkini dan pengajaran dari instruktur berpengalaman.</p>
                 </div>
                 <div class="col-lg-6">
-                    <img src="../assets/images/platform.jpg" alt="Platform Kursus" class="img-fluid rounded-3">
+                    <img src="../assets/images/tentang-kami.png" alt="Platform Kursus" class="img-fluid rounded-3">
                 </div>
             </div>
         </div>

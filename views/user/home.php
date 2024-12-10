@@ -30,13 +30,21 @@ $courses = $courseController->getAllCourses();
     <?php include '../../includes/header.php'; ?>
 
     <!-- Hero Section -->
-    <section class="hero d-flex align-items-center text-white py-5" style="background-color: #8AB6F9;">
-        <div class="container text-center">
+<section class="hero d-flex align-items-center text-white py-5" style="background-color: #8AB6F9;">
+    <div class="container d-flex align-items-center">
+        <!-- Left Column for Text and Button -->
+        <div class="text-left">
             <h1 class="display-3 mb-4" style="color: #00246B;">Halo, Selamat Datang Kembali!</h1>
             <p class="lead mb-4" style="color: #00246B;">Jelajahi kursus yang telah kami sediakan dan tingkatkan kemampuan Anda.</p>
             <a href="#courses" class="btn btn-dark btn-lg">Mulai Belajar</a>
         </div>
-    </section>
+        <!-- Right Column for Image -->
+        <div class="ml-5">
+            <img src="../../assets/images/hero.png" alt="Hero Image" class="hero-image">
+        </div>
+    </div>
+</section>
+
 
     <!-- Daftar Kursus -->
     <section id="courses" class="py-5 bg-light">
@@ -70,7 +78,7 @@ $courses = $courseController->getAllCourses();
                     <p style="color: #555;">Kami menawarkan berbagai kursus berkualitas yang diajarkan oleh instruktur berpengalaman. Temukan kursus yang cocok untuk kebutuhan Anda dan tingkatkan kemampuan Anda sekarang!</p>
                 </div>
                 <div class="col-lg-6">
-                    <img src="../../assets/images/why_us.jpg" alt="Kenapa Memilih Kami" class="img-fluid rounded-3">
+                    <img src="../../assets/images/tentang-kami.png" alt="Kenapa Memilih Kami" class="img-fluid rounded-3">
                 </div>
             </div>
         </div>

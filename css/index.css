@@ -10,9 +10,16 @@ body {
 .hero {
     background-color: #8AB6F9;
     height: 100vh;
-    text-align: center;
-    padding-top: 100px;
+    display: flex;
+    align-items: center;         /* Vertically center the content */
+    padding-left: 50px;          /* Add padding on the left */
     color: #00246B;
+}
+
+.hero .container {
+    display: flex;
+    justify-content: flex-start;  /* Align content to the left */
+    align-items: center;         /* Ensure both text and image are centered vertically */
 }
 
 .hero h1 {
@@ -37,6 +44,12 @@ body {
 .hero .btn:hover {
     background-color: #555;
     color: #fff;
+}
+
+.hero .hero-image {
+    width: 400px;  /* Adjust image size */
+    height: auto;
+    border-radius: 8px;
 }
 
 /* Daftar Kursus */
@@ -199,4 +212,69 @@ footer .social-links a {
 
 footer .social-links a:hover {
     color: #8AB6F9;
+}
+
+/* Media Queries for Responsiveness */
+
+/* For medium and large screens (tablets, desktop) */
+@media (max-width: 991px) {
+    .hero {
+        padding-left: 30px;  /* Adjust padding for smaller screens */
+    }
+    .hero h1 {
+        font-size: 2.5rem;  /* Adjust title size */
+    }
+    .hero p {
+        font-size: 1.125rem;  /* Adjust paragraph size */
+    }
+    .hero .hero-image {
+        width: 300px;  /* Adjust image size */
+    }
+    #courses h2 {
+        font-size: 1.75rem;  /* Slightly smaller font for courses title */
+    }
+    .course-card {
+        margin-bottom: 20px;  /* Add margin between course cards */
+    }
+}
+
+/* For small screens (mobile) */
+@media (max-width: 767px) {
+    .hero {
+        height: auto;  /* Adjust height for mobile */
+        flex-direction: column; /* Stack text and image vertically */
+        padding-left: 20px;  /* Reduce padding */
+    }
+    .hero h1 {
+        font-size: 2rem;  /* Smaller title size */
+    }
+    .hero p {
+        font-size: 1rem;  /* Smaller paragraph size */
+    }
+    .hero .hero-image {
+        width: 80%;  /* Make the image responsive */
+        margin-top: 20px;  /* Add spacing between text and image */
+    }
+    #courses h2 {
+        font-size: 1.5rem;  /* Adjust courses title for small screens */
+    }
+    .course-card {
+        padding: 15px;  /* Reduce padding in course cards */
+    }
+}
+
+/* For extra small screens (smartphones in portrait mode) */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.75rem;  /* Smaller title */
+    }
+    .hero p {
+        font-size: 0.9rem;  /* Smaller paragraph */
+    }
+    .course-card h5 {
+        font-size: 1rem;  /* Adjust font size for course card titles */
+    }
+    footer p {
+        font-size: 12px;  /* Smaller footer text */
+    }
 }

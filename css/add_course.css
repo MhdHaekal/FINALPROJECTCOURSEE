@@ -1,0 +1,132 @@
+/* General Styles */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background-color: #CADCFC;  /* Background utama */
+    font-family: Arial, sans-serif;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;  /* Pastikan body memiliki panjang penuh layar */
+}
+
+/* Navbar */
+.navbar {
+    background-color: #00246B;  /* Warna navbar */
+}
+
+.navbar .navbar-brand, .navbar-nav .nav-link {
+    color: white !important;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #8AB6F9;
+}
+
+/* Container utama */
+.container {
+    flex: 1;
+    padding-top: 30px;  /* Jarak atas kontainer */
+    padding-bottom: 30px;
+}
+
+/* Judul */
+.container h2 {
+    text-align: center;
+    font-weight: bold;
+    color: #00246B;
+    margin-bottom: 20px;  /* Memberikan jarak setelah judul */
+}
+
+/* Form Styles */
+.form-label {
+    color: #00246B;
+}
+
+.form-control {
+    border-radius: 5px;
+    border: 1px solid #8AB6F9;
+    padding: 10px;
+}
+
+.form-control:focus {
+    border-color: #00246B;
+    box-shadow: 0 0 5px rgba(10, 10, 10, 0.2);
+}
+
+/* CTA Button */
+.cta-btn {
+    background-color: #00246B;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+    margin-top: 10px;  /* Memberikan jarak antara tombol dan elemen lainnya */
+}
+
+.cta-btn:hover {
+    background-color: #001C4A;
+}
+
+/* Alerts */
+.alert {
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
+
+/* Button Kembali ke Dashboard */
+.btn-secondary {
+    background-color: #8AB6F9;
+    color: #00246B;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin-top: 20px;  /* Memberikan jarak antara tombol dan elemen lainnya */
+}
+
+.btn-secondary:hover {
+    background-color: #0067C0;
+}
+
+/* Footer */
+.footer {
+    background-color: #00246B;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    .cta-btn {
+        padding: 15px;
+    }
+}

@@ -10,9 +10,16 @@ body {
 .hero {
     background-color: #8AB6F9;
     height: 100vh;
-    text-align: center;
-    padding-top: 100px;
+    display: flex;
+    align-items: center;         /* Vertically center the content */
+    padding-left: 50px;          /* Add padding on the left */
     color: #00246B;
+}
+
+.hero .container {
+    display: flex;
+    justify-content: flex-start;  /* Align content to the left */
+    align-items: center;         /* Ensure both text and image are centered vertically */
 }
 
 .hero h1 {
@@ -38,6 +45,26 @@ body {
     background-color: #555;
     color: #fff;
 }
+
+.hero .hero-image {
+    width: 400px;  /* Adjust image size */
+    height: auto;
+    border-radius: 8px;
+}
+
+.hero .ml-5 {
+    margin-left: 50px;  /* Menambahkan margin kiri pada gambar */
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    max-width: 500px;
+    margin-left: 60px; /* Menambahkan jarak kiri pada gambar */
+}
+
+
 
 /* Daftar Kursus */
 #courses {
